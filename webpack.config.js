@@ -36,6 +36,10 @@ module.exports = {
                 test: /\.css$/,
                 use: ["style-loader", "css-loader"]
             },
+            {
+                test: /\.styl$/,
+                use: ["style-loader", "css-loader","stylus-loader"]
+            },
         ]
     },
     plugins: [htmlPlugin],
@@ -44,6 +48,7 @@ module.exports = {
             '@p': path.resolve(__dirname, 'public/'),
             '@s': path.resolve(__dirname, 'src/'),
             '@api': path.resolve(__dirname, 'src/api/'),
+            '~s': path.resolve(__dirname, 'styles/'),
         }
     },
 };

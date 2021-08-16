@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
-import api from '@api/jsonPlaceholder'
+import api from '@api'
+import '~s/style.styl'
 
 class App extends Component{
 	constructor(){
@@ -16,7 +17,7 @@ class App extends Component{
 				{
 					this.state.monsters.map(monster => {
 						return (
-							<h2 key={monster.id}>
+							<h2 key={monster.stationuuid}>
 								{ monster.name}
 							</h2>
 						)
@@ -30,7 +31,7 @@ class App extends Component{
 	}
 
 	componentDidMount(){
-		api.getData('/users')
+		api.getStations(1)
 		.then(res => {
 			this.setState({
 				monsters:res
